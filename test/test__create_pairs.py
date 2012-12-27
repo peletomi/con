@@ -2,7 +2,7 @@ from lib.domain import _create_pairs
 
 import unittest
 
-class CreatePairsTest(unittest.TestCase):
+class Test_create_pairs(unittest.TestCase):
 
     def testWrongNumberOfArgs(self):
         try:
