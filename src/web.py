@@ -1,3 +1,7 @@
+__author__ = "Eppel, Tamas"
+__copyright__ = "Copyright 2012"
+__license__ = "BSD"
+
 import lib.controllers
 
 import cherrypy
