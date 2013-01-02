@@ -19,17 +19,28 @@ def parse_args():
     parser.add_argument('-c', '--config', help='Path to config file. (default: %s)' % DEFAULT_CONF_FILE, dest='config')
     parser.add_argument('-p', '--port', default=8080, help='Port number to listen on (default: 8080)')
     parser.add_argument('-b', '--bind', default='0.0.0.0', help='Bind IP')
+    parser.add_argument('-r', '--repository_path', help='Repository path')
 
     return parser.parse_args()
+
+
+def load_config(args):
+    # TODO
+    config = {}
+    if args.repository_path:
+        config['repository_path'] = args.repository_path
+    return config
 
 def main():
 
     setup_cache({})
     args = parse_args()
 
+    config = load_config(args)
+
     cherrypy.config.update({'server.socket_host': args.bind, 'server.socket_port': int(args.port)})
 
-    cherrypy.tree.mount(lib.controllers.RootController(None), '/')
+    cherrypy.tree.mount(lib.controllers.RootController(config), '/')
 
     cherrypy.engine.start()
     cherrypy.engine.block()

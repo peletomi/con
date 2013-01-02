@@ -51,6 +51,9 @@ class Key():
         hash += self.key.__hash__()
         return 31 * hash
 
+    def __str__(self):
+        return '%s [%s]' % (self.key, ', '.join(self.context))
+
 class ValueRepo():
 
     def __init__(self):

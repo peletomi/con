@@ -1,4 +1,4 @@
-from lib.service import ValueRepoService, InMemoryConfigLoader
+from lib.service import ValueRepoService, InMemoryConfigLoader, YamlConfigLoader
 
 import cherrypy
 
@@ -7,7 +7,8 @@ expose = cherrypy.expose
 class RootController:
 
     def __init__(self, config):
-        self.repo_service = ValueRepoService(InMemoryConfigLoader())
+        self.config = config
+        self.repo_service = ValueRepoService(YamlConfigLoader(config))
 
     @expose
     def get(self, directory, file, key, *context):

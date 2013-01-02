@@ -31,4 +31,10 @@ fallback to a more general one.
 
 ## Examples
 
-http://localhost:8080/live/my-shop/feature.sendmail
+From the 'src' directory start service with:
+
+    python2.7 ./web.py -r ..
+
+Then try:
+
+    http://127.0.0.1:8080/get/examples/example_config/foo.bar/country/de/version/4

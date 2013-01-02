@@ -1,0 +1,15 @@
+- foo.bar:
+    value: 1
+
+- foo.bar:
+    value: 2
+    country: 'de'
+
+- foo.bar:
+    value: 3
+    country: 'de'
+    version: 2
+
+- foo.bar:
+    value: 4
+    version: 2
